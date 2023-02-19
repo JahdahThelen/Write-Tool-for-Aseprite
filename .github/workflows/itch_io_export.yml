@@ -6,7 +6,7 @@ env:
   FILENAME: Write Tool V${{vars.VERSION}}
 
 jobs:
-  export:
+  export_to_zip:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
