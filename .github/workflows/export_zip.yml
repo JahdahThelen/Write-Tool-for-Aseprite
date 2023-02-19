@@ -4,4 +4,4 @@ jobs:
   export:
     runs-on: ubuntu-latest
     steps:
-      - run: zip -r -q "Write Tool" src
+      - run: ls -a
