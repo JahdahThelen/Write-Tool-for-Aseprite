@@ -5,4 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: ls -a
+      - run: echo $VERSION
+      - run: zip -r -q "Write Tool" src
