@@ -1,13 +1,13 @@
-name: export_to_zip
+name: Create Itch.io export
 on: workflow_dispatch
 jobs:
   export:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: echo ${{env.VERSION}}
+      - run: echo ${{vars.VERSION}}
       - run: zip -r -q export.zip src
       - uses: actions/upload-artifact@v3
         with:
-          name: project_archive
+          name: Itch.io export
           path: export.zip
