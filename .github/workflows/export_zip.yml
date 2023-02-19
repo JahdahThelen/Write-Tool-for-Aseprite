@@ -1,4 +1,5 @@
 name: export_to_zip
+  on: workflow_dispatch
   jobs:
     export:
       runs-on: ubuntu-latest
