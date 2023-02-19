@@ -3,18 +3,13 @@ name: Create Itch.io export
 on: workflow_dispatch
 
 env: 
-  FILENAME: Write Tool V${{vars.VERSION}}.zip
+  FILENAME: Write Tool V${{vars.VERSION}}
 
 jobs:
   export:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      # - run: jar cMf "${{env.FILENAME}}" -C src .
-      #- uses: actions/upload-artifact@v3
-      #  with:
-      #    name: Itch.io export
-      #    path: ${{env.FILENAME}}
       - uses: actions/upload-artifact@v3
         with:
           name: ${{env.FILENAME}}
