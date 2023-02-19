@@ -1,0 +1,6 @@
+name: export_to_zip
+  jobs:
+    export:
+      runs-on: ubuntu-latest
+        steps:
+          - run: zip -r -q src.zip "Write Tool V$VERSION"
