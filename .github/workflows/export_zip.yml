@@ -1,7 +1,7 @@
 name: export_to_zip
-  on: workflow_dispatch
-  jobs:
-    export:
-      runs-on: ubuntu-latest
-        steps:
-          - run: zip -r -q src.zip "Write Tool V$VERSION"
+on: workflow_dispatch
+jobs:
+  export:
+    runs-on: ubuntu-latest
+      steps:
+        - run: zip -r -q src.zip "Write Tool V$VERSION"
