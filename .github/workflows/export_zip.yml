@@ -3,7 +3,7 @@ name: Create Itch.io export
 on: workflow_dispatch
 
 env: 
-  - FILENAME: "Write Tool V${{vars.VERSION}}.zip"
+  - FILENAME: Write Tool V${{vars.VERSION}}.zip
 
 jobs:
   export:
