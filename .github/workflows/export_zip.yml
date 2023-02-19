@@ -5,5 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: echo $VERSION
-      - run: zip -r -q "Write Tool" src
+      - run: echo ${{env.VERSION}}
+      - run: zip -r -q export.zip src
+      - uses: actions/upload-artifact@v3
+        with:
+          name: project_archive
+          path: export.zip
