@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: zip -r -q "${{env.FILENAME}}" src
+      - run: zip -dc -r -q "${{env.FILENAME}}" src/*
       - uses: actions/upload-artifact@v3
         with:
           name: Itch.io export
