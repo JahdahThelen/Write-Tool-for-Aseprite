@@ -4,4 +4,4 @@ jobs:
   export:
     runs-on: ubuntu-latest
     steps:
-      - run: zip -r -q src.zip "Write Tool V$VERSION"
+      - run: zip -r -q "Write Tool V${{ env.VERSION }}" src
