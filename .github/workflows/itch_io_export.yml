@@ -4,13 +4,23 @@ on: workflow_dispatch
 
 env: 
   FILENAME: Write Tool V${{vars.VERSION}}
+  BUILD_DIR: .itch
 
 jobs:
   export_to_zip:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/upload-artifact@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Move all needed scripts to ${{env.BUILD_DIR}}
+        run: |
+          mkdir ${{env.BUILD_DIR}}
+          pushd src/
+          cp -r Fonts ../${{env.BUILD_DIR}}/Fonts
+          cat settings.lua functions.lua import_fonts.lua dialog.lua > ../${{env.BUILD_DIR}}/Write.lua
+          popd
+      - name: Move ${{env.BUILD_DIR}} to zip
+        uses: actions/upload-artifact@v3
         with:
           name: ${{env.FILENAME}}
-          path: src
+          path: ${{env.BUILD_DIR}}
