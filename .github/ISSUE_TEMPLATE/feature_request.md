@@ -7,13 +7,13 @@ assignees: ''
 
 ---
 
-**How should it work?**
+### How should it work?
 
-**Why should it work that way?**
+### Why should it work that way?
 
-**Does it include dialog changes?**
+### Does it include dialog changes?
 
-**Priorities:**
+### Priorities:
  - Must have:
  - Should have:
  - Could have:
