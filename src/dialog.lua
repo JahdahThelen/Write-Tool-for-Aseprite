@@ -31,7 +31,9 @@ function onAdvancedSettingsSelected(dlg)
 end
 
 function onWritePressed(dlg)
-    writeText(dlg.data)
+    local font = selectFontBasedOnName(data.font)
+    local points = calculatePoints(dlg.data, font)
+    writeInAseprite(dlg.data.text, points, dlg.data.color)
     app.refresh()
 end
 

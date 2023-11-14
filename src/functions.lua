@@ -4,10 +4,7 @@
 -----------------------------------------------------------------------------------------
 
 -- Main function
-function writeText(data)
-
-    -- select the correct font
-    local font = selectFontBasedOnName(data.font)
+function calculatePoints(data, font)
     
     POSITION = DEFAULT_POSITION
 
@@ -26,28 +23,7 @@ function writeText(data)
         points = alignRight(points)
     end
 
-    app.transaction(
-        function()
-            createWorkspace(data.text)
-        
-            -- draw the whole text 
-            for i, line in pairs(points) do
-                if line ~= nil then 
-                    for j, point in pairs(line) do
-                        if point ~= nil then 
-                            drawLine(point, data.color)
-                        end
-                    end
-                end
-            end
-        end
-    )
-end
-
-function selectFontBasedOnName(name) 
-    for index, font in pairs(ALL_FONTS) do
-        if name == font.name then return font end 
-    end
+    return points
 end
 
 function useFont(font, text, allow_escape_chars)
@@ -303,31 +279,4 @@ function getSpriteWidth()
         width = sprite.width
     end
     return width
-end
-
--- ASEPRITE CALLING FUNCTIONS -----------------------------------------------------------------
-
--- Draw a line with the brush
-function drawLine(point, color)
-    app.useTool {
-        tool = "pencil",
-        color = color,
-        brush = BRUSH,
-        points = { point },
-        cel = CEL,
-        layer = LAYER
-    }
-end
-
--- Choose or create the Sprite, Layer and Cel 
-function createWorkspace(layer_name)
-    local sprite = app.activeSprite
-    if sprite == nil then
-        sprite = Sprite(DEFAULT_SPRITE_SIZE.width, DEFAULT_SPRITE_SIZE.height)
-        app.activeSprite = sprite
-    end
-
-    LAYER = sprite:newLayer()
-    LAYER.name = layer_name
-    CEL = sprite:newCel(LAYER, 1)
 end
