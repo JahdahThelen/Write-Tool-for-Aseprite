@@ -4,7 +4,7 @@
 -----------------------------------------------------------------------------------------
 
 -- Main function
-function writeText(data)
+function calculatePoints(data)
 
     -- select the correct font
     local font = selectFontBasedOnName(data.font)
@@ -26,22 +26,7 @@ function writeText(data)
         points = alignRight(points)
     end
 
-    app.transaction(
-        function()
-            createWorkspace(data.text)
-        
-            -- draw the whole text 
-            for i, line in pairs(points) do
-                if line ~= nil then 
-                    for j, point in pairs(line) do
-                        if point ~= nil then 
-                            drawLine(point, data.color)
-                        end
-                    end
-                end
-            end
-        end
-    )
+    return points
 end
 
 function selectFontBasedOnName(name) 

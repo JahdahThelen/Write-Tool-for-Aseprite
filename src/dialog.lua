@@ -31,7 +31,8 @@ function onAdvancedSettingsSelected(dlg)
 end
 
 function onWritePressed(dlg)
-    writeText(dlg.data)
+    points = calculatePoints(dlg.data)
+    writeInAseprite(dlg.data.text, points, dlg.data.color)
     app.refresh()
 end
 
