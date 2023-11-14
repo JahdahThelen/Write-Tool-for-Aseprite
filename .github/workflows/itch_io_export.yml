@@ -17,7 +17,7 @@ jobs:
           mkdir ${{env.BUILD_DIR}}
           pushd src/
           cp -r Fonts ../${{env.BUILD_DIR}}/Fonts
-          cat settings.lua functions.lua import_fonts.lua dialog.lua > ../${{env.BUILD_DIR}}/Write.lua
+          cat settings.lua functions.lua aseprite.lua import_fonts.lua dialog.lua > ../${{env.BUILD_DIR}}/Write.lua
           popd
       - name: Move ${{env.BUILD_DIR}} to zip
         uses: actions/upload-artifact@v3
