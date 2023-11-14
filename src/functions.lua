@@ -4,10 +4,7 @@
 -----------------------------------------------------------------------------------------
 
 -- Main function
-function calculatePoints(data)
-
-    -- select the correct font
-    local font = selectFontBasedOnName(data.font)
+function calculatePoints(data, font)
     
     POSITION = DEFAULT_POSITION
 
@@ -27,12 +24,6 @@ function calculatePoints(data)
     end
 
     return points
-end
-
-function selectFontBasedOnName(name) 
-    for index, font in pairs(ALL_FONTS) do
-        if name == font.name then return font end 
-    end
 end
 
 function useFont(font, text, allow_escape_chars)
