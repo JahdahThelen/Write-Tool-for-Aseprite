@@ -289,30 +289,3 @@ function getSpriteWidth()
     end
     return width
 end
-
--- ASEPRITE CALLING FUNCTIONS -----------------------------------------------------------------
-
--- Draw a line with the brush
-function drawLine(point, color)
-    app.useTool {
-        tool = "pencil",
-        color = color,
-        brush = BRUSH,
-        points = { point },
-        cel = CEL,
-        layer = LAYER
-    }
-end
-
--- Choose or create the Sprite, Layer and Cel 
-function createWorkspace(layer_name)
-    local sprite = app.activeSprite
-    if sprite == nil then
-        sprite = Sprite(DEFAULT_SPRITE_SIZE.width, DEFAULT_SPRITE_SIZE.height)
-        app.activeSprite = sprite
-    end
-
-    LAYER = sprite:newLayer()
-    LAYER.name = layer_name
-    CEL = sprite:newCel(LAYER, 1)
-end
